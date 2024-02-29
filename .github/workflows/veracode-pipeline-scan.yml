@@ -16,6 +16,7 @@ jobs:
           go-version: 1.21
       - name: Build
         run: go build
+      - run: go env GOPATH
         
       - name: Package the application for Veracode Static Analysis
         run: |
