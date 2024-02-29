@@ -9,9 +9,15 @@ jobs:
     steps:
       - name: Check out main branch
         uses: actions/checkout@v2
+      
+      - name: Create a folder
+        run: mkdir app
+      
+      - name: Move everything into folder
+        run: mv * app/
 
       - name: Package the application for Veracode Static Analysis
-        run: zip -r app.zip .
+        run: zip -r app.zip app
 
       - name: Pipeline Scan
         run: |
