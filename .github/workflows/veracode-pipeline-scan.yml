@@ -14,7 +14,7 @@ jobs:
         run: mkdir app
 
       - name: Move everything into folder
-        run: mv !(app) app/
+        run: mv * app/
 
       - name: Package the application for Veracode Static Analysis
         run: zip -r app.zip app
