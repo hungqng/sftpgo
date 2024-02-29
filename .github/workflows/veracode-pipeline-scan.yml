@@ -16,16 +16,13 @@ jobs:
           go-version: 1.22
       - name: Build
         run: go build
-      - run: echo "GOPATH=$HOME/go" >> $GITHUB_ENV
-      - run: go env GOPATH
         
       - name: Package the application for Veracode Static Analysis
         run: |
-          export HOME=/home/runner/work/sftpgo/sftpgo
           export GOPATH=`go env GOPATH` &&
           export PATH="$GOPATH/bin:$PATH" &&
           go install github.com/relaxnow/vcgopkg@latest
-          ./vcgopkg
+          vcgopkg
 
       - name: Pipeline Scan
         run: |
