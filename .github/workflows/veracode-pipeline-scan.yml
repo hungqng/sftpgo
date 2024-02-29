@@ -1,0 +1,20 @@
+name: Veracode Pipeline Scan
+on: workflow_dispatch
+    
+jobs:
+  pipeline_scan:
+    name: Pipeline Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out main branch
+        uses: actions/checkout@v2
+
+      - name: Package the application for Veracode Static Analysis
+        run: zip -r app.zip .
+
+      - name: Pipeline Scan
+        run: |
+          curl -sSO https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
+          unzip -o pipeline-scan-LATEST.zip
+          java -jar pipeline-scan.jar -vid ${{ secrets.VERACODE_API_ID }} -vkey ${{ secrets.VERACODE_API_KEY }} --json_output_file="results.json" -f app.zip || true
