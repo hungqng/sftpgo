@@ -16,7 +16,7 @@ jobs:
             export GOPATH=`go env GOPATH` &&
             export PATH="$GOPATH/bin:$PATH" &&
             go install github.com/relaxnow/vcgopkg@latest
-            vcgopkg .
+            ./vcgopkg
 
       - name: Pipeline Scan
         run: |
