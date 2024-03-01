@@ -1,14 +1,15 @@
 name: Docker
+on: workflow_dispatch
 
-on:
-  #schedule:
-  #  - cron: '0 4 * * *' # everyday at 4:00 AM UTC
-  push:
-    branches:
-      - main
-    tags:
-      - v*
-  pull_request:
+# on:
+#   #schedule:
+#   #  - cron: '0 4 * * *' # everyday at 4:00 AM UTC
+#   push:
+#     branches:
+#       - main
+#     tags:
+#       - v*
+#   pull_request:
 
 jobs:
   build:
