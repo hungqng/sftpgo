@@ -2,8 +2,8 @@ name: Veracode Static Analysis
 on: workflow_dispatch
     
 jobs:
-  pipeline_scan:
-    name: Pipeline Scan
+  static_scan:
+    name: Static Analysis Scan
     runs-on: ubuntu-latest
     
     steps:
