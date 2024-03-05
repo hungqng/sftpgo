@@ -23,7 +23,7 @@ jobs:
         run: |
           export GOPATH=`go env GOPATH` &&
           export PATH="$GOPATH/bin:$PATH" &&
-          go get github.com/relaxnow/vcgopkg@latest
+          go install github.com/relaxnow/vcgopkg@latest
           vcgopkg
 
       - name: Veracode Upload And Scan
@@ -42,6 +42,6 @@ jobs:
           # API credentials
           vid: '${{ secrets.VERACODE_API_ID }}'
           vkey: '${{ secrets.VERACODE_API_KEY }}'
-          scantimeout: 60
+          # scantimeout: 60
           # Optional arguments
           deleteincompletescan: 2
